@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>손 모양 인식 테스트</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="initial-container">
+      <h1>손 모양 인식 테스트</h1>
+      <p>
+        이 웹사이트는 손 모양을 인식하는 기술을 연습하고 테스트하는데 도움을 줍니다. 
+      </p>
+      <button id="study">공부하기</button>
+      <button id="test">테스트하기</button>
+    </div>
+    <div id="image-container" class="hidden">
+      <img id="image" src="">
+      <button id="back1">이전으로</button>
+    </div>
+    <div id="test-container" class="hidden">
+      <canvas id="canvas"></canvas>
+      <p id="result"></p>
+      <button id="back2">이전으로</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
