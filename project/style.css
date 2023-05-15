@@ -1,0 +1,21 @@
+.difficulty-buttons {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.difficulty-button {
+	background-color: #ddd;
+	border: none;
+	border-radius: 4px;
+	color: #333;
+	cursor: pointer;
+	font-size: 16px;
+	margin: 0 10px;
+	padding: 10px 20px;
+}
+
+.difficulty-button:focus,
+.difficulty-button:hover {
+	background-color: #ccc;
+}
