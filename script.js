@@ -10,7 +10,7 @@ document.getElementById("study").addEventListener("click", function() {
   // 이미지를 불러와 화면에 보여줌
   const image = document.getElementById("image");
   image.style.width = "1000px";
-  image.style.height = "600px";
+  image.style.height = "650px";
   image.setAttribute("src", imagePath);
   document.getElementById("image-container").classList.remove("hidden");
 
@@ -28,6 +28,7 @@ document.getElementById("study").addEventListener("click", function() {
 // 테스트 버튼 클릭 이벤트 처리
 document.getElementById("test").addEventListener("click", function() {
   document.getElementById("initial-container").classList.add("hidden");
+  window.location.href = "test.html";
   // 캔버스 초기화
   const canvas = document.getElementById("canvas");
   const context = canvas.getContext("2d");
