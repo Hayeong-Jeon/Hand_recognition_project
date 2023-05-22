@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>수어 테스트 - 보통</title>
+	<style>
+		#video-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		#video {
+			width: 640px;
+			height: 480px;
+		}
+	</style>
+</head>
+<body>
+	<div id="video-container">
+		<video id="video" autoplay></video>
+	</div>
+
+	<script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+	<script>
+		function onOpenCvReady() {
+			// Access the video element
+			const video = document.getElementById('video');
+
+			// Load the video stream from the webcam
+			navigator.mediaDevices.getUserMedia({ video: true })
+				.then(stream => {
+					video.srcObject = stream;
+					video.onloadedmetadata = () => {
+						video.play();
+						startMotionDetection();
+					};
+				 })
+				.catch(error => {
+					console.error('Error accessing the webcam:', error);
+				});
+
+			// Function to start motion detection
+			function startMotionDetection() {
+				// Create a video capture object
+				const cap = new cv.VideoCapture(video);
+
+				// Create a background subtraction object
+				const bgSubtractor = new cv.BackgroundSubtractorMOG2();
+
+				// Function to process video frames
+				function processVideo() {
+					let frame = new cv.Mat();
+					let fgMask = new cv.Mat();
+
+					// Capture the current video frame
+					cap.read(frame);
+
+					// Apply background subtraction
+					bgSubtractor.apply(frame, fgMask);
+
+					// Perform additional processing or analysis on fgMask
+					// ...
+
+					// Display the video frame and fgMask
+					cv.imshow('video', frame);
+					cv.imshow('fgMask', fgMask);
+
+					// Request the next animation frame
+					requestAnimationFrame(processVideo);
+				}
+
+				// Start processing video frames
+				processVideo();
+			}
+		}
+	</script>
+</body>
+</html>
