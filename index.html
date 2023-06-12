@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>손 모양 인식 테스트</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div id="initial-container">
-      <h1>손 모양 인식 테스트</h1>
-      <p>
-        이 웹사이트는 손 모양을 인식하는 기술을 연습하고 테스트하는데 도움을 줍니다. 
-      </p>
-      <button id="study">공부하기</button>
-      <button id="test">테스트하기</button>
-    </div>
-    <div id="image-container" class="hidden">
-      <img id="image" src="">
-      <button id="back1">돌아가기</button>
-    </div>
-    <div id="test-container" class="hidden">
-      <canvas id="canvas"></canvas>
-      <p id="result"></p>
-      <button id="back2">돌아가기</button>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>손 모양 인식 테스트</title>
+  <style>
+    /* Add white box style */
+    .white-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="initial-container" class="white-box">
+    <h1>손 모양 인식 테스트</h1>
+    <p>이 웹사이트는 손 모양 인식 기술을 연습하고 테스트하는 데 도움을 줍니다.</p>
+    <button id="study">공부하기</button>
+    <button id="test">테스트하기</button>
+  </div>
+  <div id="image-container" class="hidden">
+    <img id="image" src="">
+    <button id="back1">뒤로가기</button>
+  </div>
+  <div id="test-container" class="hidden">
+    <canvas id="canvas"></canvas>
+    <p id="result"></p>
+    <button id="back2">뒤로가기</button>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
-<script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
