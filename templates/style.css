@@ -1,0 +1,109 @@
+  @font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+/* HTML 요소에 폰트 적용 */
+html {
+  font-family: 'omyu_pretty', sans-serif;
+}
+
+/* 문단에 폰트 적용 */
+p {
+  font-family: 'omyu_pretty', sans-serif;
+}
+
+/* 기본 스타일 초기화 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 배경 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("wide_field_image.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1; /* 배경 이미지를 뒤로 보내기 위해 음수 z-index 값 추가 */
+}
+
+
+/* 콘텐츠를 수직 및 수평 가운데 정렬 */
+html, body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 초기 컨테이너 스타일 설정 */
+#initial-container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 버튼 스타일 설정 */
+button {
+  margin-top: 20px;
+  padding: 7px 10px;
+  background-color: #102ff612;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2em;
+  /* 흰색 박스 스타일 적용 */
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #3e438e;
+}
+
+/* 이미지 컨테이너 스타일 설정 */
+#image-container,
+#test-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#image {
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 캔버스 스타일 설정 */
+canvas {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 결과 스타일 설정 */
+#result {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: red;
+}
+
+/* hidden 클래스 스타일 설정 */
+.hidden {
+  display: none;
+}

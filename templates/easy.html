@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>수화 퀴즈</title>
+	<style>
+		/* 페이지 스타일 지정 */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		h1, h2, h3 {
+			text-align: center;
+		}
+		form {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		input[type="radio"] {
+			margin-right: 10px;
+		}
+		input[type="submit"] {
+			display: block;
+			margin-top: 20px;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>수화 퀴즈</h1>
+	<form method="post" action="quiz-result.php">
+		<h2>질문 1</h2>
+		<p>"안녕하세요"의 수화는 무엇인가요?</p>
+		<label><input type="radio" name="q1" value="a">A. 열린 손으로 인사하기</label>
+		<label><input type="radio" name="q1" value="b">B. 단어 철자 맞추기</label>
+		<label><input type="radio" name="q1" value="c">C. 눈썹 올리기와 고개 끄덕이기</label>
+	<h2>질문 2</h2>
+	<p>"감사합니다"의 수화는 무엇인가요?</p>
+	<label><input type="radio" name="q2" value="a">A. 손뼉 치기</label>
+	<label><input type="radio" name="q2" value="b">B. 고개 숙이고 "감사합니다" 말하기</label>
+	<label><input type="radio" name="q2" value="c">C. 단어 철자 맞추기</label>
+
+	<h2>질문 3</h2>
+	<p>"예"의 수화는 무엇인가요?</p>
+	<label><input type="radio" name="q3" value="a">A. 머리를 좌우로 흔들기</label>
+	<label><input type="radio" name="q3" value="b">B. 머리를 상하로 움직이기</label>
+	<label><input type="radio" name="q3" value="c">C. 자신을 가리키기</label>
+
+	<input type="submit" value="제출하기">
+</form>
+<script>
+	// Add event listener to "쉬움" button
+	document.getElementById("쉬움").addEventListener("click", function() {
+		window.location.href = "easy-result.php";
+	});
+	</script>
+</body>
+</html>

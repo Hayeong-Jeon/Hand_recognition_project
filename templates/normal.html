@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hand Gesture Recognition</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.10.0/dist/tf.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="result"></div>
+  <div id="timer"></div>
+  <div id="wait"></div>
+  <!-- 문제 표시할 요소 추가 -->
+  <div id="new_problem"></div>
+  <!-- 타이머 종료 후 결과를 표시할 요소 추가 -->
+  <div id="timerResult"></div>
+  <div id="quiz_result"></div>
+  <!-- 결과를 표시할 텍스트 상자 추가 -->
+  <div id="resultTextbox"></div>
+
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <button onclick="startTimer()">시작</button>
+  <button onclick="goBack()">돌아가기</button> <!-- 뒤로가기 버튼 -->
+
+  <script>
+    // SocketIO 연결
+    var socket = io();
+
+    // 결과를 표시할 요소 가져오기
+    var resultDiv = document.getElementById('result');
+
+    // 캔버스 요소 가져오기
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    // 손 인식 결과를 처리하는 함수
+    function handleResult(result) {
+      resultDiv.innerText = result;
+    }
+
+    // 손 인식 결과를 캔버스에 그리는 함수
+    function drawResult(frame) {
+      var image = new Image();
+      image.src = 'data:image/jpeg;base64,' + frame;
+      image.onload = function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      };
+    }
+
+    // frame 이벤트를 처리하는 함수
+    socket.on('frame', function(frame) {
+      // 손 인식 결과를 캔버스에 그리기
+      drawResult(frame);
+    });
+
+    // result 이벤트를 처리하는 함수
+    socket.on('result', function(result) {
+      // 손 인식 결과를 표시하기
+      handleResult(result);
+    });
+
+    // 프레임 요청을 서버에 보내는 함수
+    function requestFrame() {
+      socket.emit('frame_request');
+    }
+
+    // result 이벤트를 처리하는 함수
+    socket.on('result', function(result) {
+      // 손 인식 결과를 표시하기
+      handleResult(result);
+    });
+
+    // 문제를 받는 함수
+    var problemCount = 0; // 문제 수를 저장하는 변수
+    socket.on('new_problem', function (problem) {
+      // 받은 문제를 문제 표시 요소에 적용
+      var newProblemDiv = document.getElementById('new_problem');
+      newProblemDiv.innerText = problem;
+      
+      // 문제 수 증가
+      problemCount+=1;
+      
+    });
+
+    var waitTime = ''; // 대기 시간을 저장하는 변수
+    var timerwait = false; 
+    var timer_wait_time = null;
+    var timer_started = false; // 타이머 시작 여부
+    var timer_end_time = null; // 타이머 종료 시간
+
+    var scroe = 0;
+
+    var correctproblem = 0;
+    var incorrectproblem = 0;
+    
+    // 타이머 상태를 1초마다 업데이트 하기위한 타이머 함수
+    var intervalID = setInterval(function () {
+      if (timer_started) {
+        updateTimer();
+      } else if (timerwait) {
+        if(problemCount<5){
+          waittimer(); // 대기시간 업데이트
+          if (waitTime === '00') {
+            timerwait = false;
+            document.getElementById('wait').innerText = '다음 문제가 출제됩니다. 준비 해주세요.';
+            document.getElementById('quiz_result').innerText = '';
+            document.getElementById('new_problem').innerText = '';
+            return;
+          }
+          if(problemCount <5){
+            document.getElementById('resultTextbox').innerText = '당신이 현재까지 맞힌 개수는 ' + correctproblem + '개 입니다.';
+          }
+          document.getElementById('wait').innerText = waitTime + '초 뒤에 다음 문제가 출제됩니다. 준비 해주세요.';
+          document.getElementById('new_problem').innerText = '';
+        } else endTest();
+      }
+    }, 1000);
+
+    // 타이머 종료 후 체크하는 변수
+    var timerStopped = false;
+
+    // 타이머를 반복적으로 돌아가게하는 intervalID를 중지시키기 위한 함수
+    var intervalIDTracker = setInterval(function() {
+
+      if (problemCount > 5) {
+        clearInterval(intervalID); // 인터벌 정지
+        timerStopped = true; // 타이머 종료 체크
+      }
+      if (timerStopped) {
+        clearInterval(intervalIDTracker); // 현재 실행 중인 인터벌 중지시킴
+        return;
+      }
+    }, 1000);
+
+    // 타이머 시작 이벤트를 처리하는 함수
+    // 타이머 시작 이벤트를 처리하는 함수
+    function startTimer() {
+      timerwait = true;
+      timer_started = true; // 타이머 시작
+      timer_end_time = new Date().getTime() + 10000; // 현재 시간에서 10초 뒤의 시간을 종료 시간으로 설정
+      timer_wait_time = timer_end_time + 5000; // 타이머 10초가 끝난 뒤 5초를 쉬어야 함.
+      document.getElementById('resultTextbox').innerText = '';
+      
+      if(problemCount <= 5){
+        socket.emit('start_timer'); // 서버에 타이머 시작 이벤트 전송
+        updateTimer(); // 타이머 업데이트
+      }
+    }
+
+    // 타이머를 업데이트하는 함수
+    function updateTimer() {
+      var currentTime = new Date().getTime(); // 현재 시간
+      var timeLeft = timer_end_time - currentTime; // 남은 시간 계산
+
+      // 타이머 종료 시간이 지났을 경우
+      if (timeLeft < 0 ) {
+
+        document.getElementById('timer').innerText = '타이머 종료';
+        timer_started = false; // 타이머 정지         
+
+        // 타이머 종료 이벤트를 처리하는 함수
+        // 타이머 종료 이벤트를 서버에게 전송
+        socket.emit('timer_end');
+        socket.once('quiz_result', function (result) {
+          document.getElementById('quiz_result').innerText = result;
+
+          if (result == '정답입니다!') {
+            correctproblem += 1;
+          } else {
+            incorrectproblem += 1;
+          }
+
+        });
+        // 문제 수에 따라 타이머 재시작
+        if (problemCount < 5) {
+          setTimeout(function() {
+            document.getElementById('wait').innerText = ''; //대화상자 초기화
+            if(problemCount < 5) startTimer();
+          }, 5000); // 5초 대기 후 타이머 재시작
+        }
+        return;
+      }
+
+      // 시, 분, 초 계산
+      var seconds = Math.floor(timeLeft / 1000);
+
+      // 시간을 표시하는 형식으로 변환
+      var timeString = seconds.toString().padStart(2, '0');
+
+      // 타이머 표시 업데이트
+      document.getElementById('timer').innerText = '남은 시간: ' + timeString + '초';
+    }
+    function endTest(){
+      scroe = correctproblem * 20;
+      document.getElementById('new_problem').innerText = '';
+      document.getElementById('timer').innerText = '';
+      document.getElementById('timerResult').innerText = '테스트 끝'; // 타이머 종료 메시지 표시
+      document.getElementById('wait').innerText = ''; // 대기 시간 요소 초기화
+      document.getElementById('quiz_result').innerText = ''; // 퀴즈 결과 요소 초기화
+      document.getElementById('resultTextbox').innerText = '당신이 총 점수는'  +scroe+ '점 입니다.';
+    }
+    function waittimer(){
+      var currentTime2 = new Date().getTime();
+
+      var timeWait = timer_wait_time - currentTime2; // 웨이팅 시간
+      var Waitseconds = Math.floor(timeWait / 1000); // 시, 분, 초 계산
+
+      var WaittimeString = Waitseconds.toString().padStart(2, '0'); // 시간을 표시하는 형식으로 변환
+      waitTime = WaittimeString; // 대기 시간을 전역 변수에 저장
+    }
+
+      // 페이지가 로드될 때 프레임 요청
+      window.onload = requestFrame;
+
+      function goBack() {
+        window.history.back();
+      }
+
+  </script>
+</body>
+</html>

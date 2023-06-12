@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>수어 테스트</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .white-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .difficulty-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .easy-button-selected {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="white-box">
+            <h2>테스트 난이도를 선택하세요</h2>
+            <div class="difficulty-buttons">
+                <button type="button" id="easy-button" class="difficulty-button">쉬움</button>
+                <button type="button" id="normal-button" class="difficulty-button">보통</button>
+            </div>
+            <button type="button" id="start-button">시작하기</button>
+            <button type="button" id="first-button">처음으로</button>
+        </div>
+    </div>
+
+    <script>
+        var selectedDifficulty = "none";
+
+        function updateSelectedButton(buttonId) {
+            var buttons = document.getElementsByClassName("difficulty-button");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("easy-button-selected");
+            }
+            document.getElementById(buttonId).classList.add("easy-button-selected");
+        }
+
+        // Add event listeners to difficulty buttons
+        document.getElementById("easy-button").addEventListener("click", function() {
+            selectedDifficulty = "easy";
+            updateSelectedButton("easy-button");
+        });
+
+        document.getElementById("normal-button").addEventListener("click", function() {
+            selectedDifficulty = "normal";
+            updateSelectedButton("normal-button");
+        });
+
+        // Add event listener to "시작하기" button
+        document.getElementById("start-button").addEventListener("click", function() {
+            if (selectedDifficulty === "easy") {
+                window.location.href = "quiz.php";
+            } else if (selectedDifficulty === "normal") {
+                window.location.href = "http://localhost:5000/";
+            }
+        });
+
+        // Add event listener to "First" button
+        document.getElementById("first-button").addEventListener("click", function() {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
