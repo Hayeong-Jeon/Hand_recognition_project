@@ -1,7 +1,7 @@
 # Hand_recognition
 ### : 누구나 쉽게 익힐 수 있는 지문자
 <div align="center">
-  <img src="image/assets/썸넬.PNG" height="300" width="50%">
+  <img src="image/assets/썸넬.PNG" height="500" width="50%">
 </div>
 
 
