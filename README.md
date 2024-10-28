@@ -6,7 +6,7 @@
 
 
 ## 페이지 설명 (detail of page)
-### 1.공부하기 페이지
+### 1. 공부하기 페이지
 지문자 표를 이용한 학습페이지
 
 <img src="image/assets/공부하기.gif" height="300" width="50%">
