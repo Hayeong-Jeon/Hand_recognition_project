@@ -1,13 +1,15 @@
 # Hand_recognition
 ### : 누구나 쉽게 익힐 수 있는 지문자
 <div align="center">
-  <img src="/image/썸넬.PNG" height="300" width="50%">
+  <img src="assets/image/썸넬.PNG" height="300" width="50%">
 </div>
 
 
-### 1. 페이지 설명 (detail of page)
+## 1. 페이지 설명 (detail of page)
+### 공부하기 페이지
+지문자 표를 이용한 학습페이지
 
-
+<img src="assets/image/공부하기.gif" height="300" width="50%">
 
 
 
