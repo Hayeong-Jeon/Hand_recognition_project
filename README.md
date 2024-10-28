@@ -11,6 +11,11 @@
 
 <img src="image/assets/공부하기.gif" height="400" width="30%">
 
+
+<br/><br/>
+
+<br/><br/>
+
 ### 2. 테스트 페이지
 
 ### 쉬움 난이도
@@ -27,6 +32,11 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
     <img src="image/assets/보통1.gif" height="400" width="40%">
     <img src="image/assets/보통2.gif" height="400" width="40%">
 </div>
+
+
+<br/><br/>
+
+<br/><br/>
 
 
 ## 기술 스택
