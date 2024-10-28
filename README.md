@@ -3,6 +3,14 @@
 <div align="center">
   <img src="/image/썸넬.PNG" height="300" width="50%">
 </div>
+
+
+: 1. 페이지 설명 (detail of page)
+
+
+
+
+
 필기부분
 수어 지문자의 이미지를보고 무슨 글자인지 정답을 맞추며 점수를 알려준다.
 
