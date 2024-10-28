@@ -17,10 +17,10 @@
 php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 보고 해당 이미지에 대한 질문에 답하는 퀴즈 페이지(난이도: 쉬움) 입니다. 퀴즈는 여러 개의 질문으로 구성되어 있으며 각 질문은 관련된 이미지와 함께 표시됩니다. 
 <div style="display: flex; justify-content: space-between;">
   <div style="margin-right: 10px;">
-    <img src="image/assets/쉬움1.gif" height="400" width="50%">
+    <img src="image/assets/쉬움1.gif" height="400" width="40%">
   </div>
   <div style="margin-left: 10px;">
-    <img src="image/assets/쉬움2.gif" height="400" width="50%">
+    <img src="image/assets/쉬움2.gif" height="400" width="40%">
   </div>
 </div>
 ### 보통 난이도
@@ -28,10 +28,10 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 
 <div style="display: flex; justify-content: space-between;">
   <div style="margin-right: 10px;">
-    <img src="image/assets/보통1.gif" height="200" width="50%">
+    <img src="image/assets/보통1.gif" height="400" width="50%">
   </div>
   <div style="margin-left: 10px;">
-    <img src="image/assets/보통2.gif" height="200" width="50%">
+    <img src="image/assets/보통2.gif" height="400" width="50%">
   </div>
 </div>
 
