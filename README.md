@@ -1,5 +1,5 @@
-# Hand_recognition_project
-
+# Hand_recognition
+### : 누구나 쉽게 익힐 수 있는 지문자
 필기부분
 수어 지문자의 이미지를보고 무슨 글자인지 정답을 맞추며 점수를 알려준다.
 
