@@ -1,7 +1,7 @@
 # Hand_recognition
 ### : 누구나 쉽게 익힐 수 있는 지문자
 <div align="center">
-  <img src="assets/image/썸넬.PNG" height="300" width="50%">
+  <img src="image/assets/썸넬.PNG" height="300" width="50%">
 </div>
 
 
@@ -9,7 +9,7 @@
 ### 공부하기 페이지
 지문자 표를 이용한 학습페이지
 
-<img src="assets/image/공부하기.gif" height="300" width="50%">
+<img src="image/assets/공부하기.gif" height="300" width="50%">
 
 
 
