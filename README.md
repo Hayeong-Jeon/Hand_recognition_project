@@ -19,7 +19,6 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
   <div style="margin-right: 10px;">
     <img src="image/assets/쉬움1.gif" height="400" width="40%">
   </div>
-  <div style="margin-left: 10px;">
     <img src="image/assets/쉬움2.gif" height="400" width="40%">
   </div>
 </div>
