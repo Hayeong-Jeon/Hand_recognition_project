@@ -4,8 +4,20 @@
   <img src="image/assets/썸넬.PNG" height="300" width="50%">
 </div>
 
+<br/><br/>
+
+# 목차
+1. [페이지 설명 (detail of page)](#페이지-설명-detail-of-page)
+   - [1. 공부하기 페이지](#1-공부하기-페이지)
+   - [2. 테스트 페이지](#2-테스트-페이지)
+     - [쉬움 난이도](#쉬움-난이도)
+     - [보통 난이도](#보통-난이도)
+2. [기술 스택](#기술-스택)
+3. [요약](#요약)
+<br/><br/>
 
 ## 페이지 설명 (detail of page)
+
 ### 1. 공부하기 페이지
 지문자 표를 이용한 학습페이지
 
@@ -42,6 +54,11 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 ## 기술 스택
 - 👓 **Front-End**: Html/CSS/JavaScript, Socket.IO
 - 🕶 **Back-End** : Flask, TensorFlow 및 MediaPipe, MySQL, WebSocket
+
+
+<br/><br/>
+
+<br/><br/>
 
 
 ## 요약
