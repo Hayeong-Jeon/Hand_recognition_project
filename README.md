@@ -9,7 +9,7 @@
 ### 1. 공부하기 페이지
 지문자 표를 이용한 학습페이지
 
-<img src="image/assets/공부하기.gif" height="200" width="50%">
+<img src="image/assets/공부하기.gif" height="200" width="300%">
 
 ### 2. 테스트 페이지
 
