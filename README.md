@@ -5,6 +5,7 @@
 </div>
 
 <br/><br/>
+<hr>
 
 # 목차
 1. [페이지 설명 (detail of page)](#페이지-설명-detail-of-page)
@@ -14,6 +15,7 @@
      - [보통 난이도](#보통-난이도)
 2. [기술 스택](#기술-스택)
 3. [요약](#요약)
+4. [팀원](#팀원)
 <br/><br/>
 
 ## 페이지 설명 (detail of page)
@@ -51,7 +53,7 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 <br/><br/>
 
 <br/><br/>
-
+<hr>
 
 ## 기술 스택
 - 👓 **Front-End**: Html/CSS/JavaScript, Socket.IO
@@ -69,3 +71,9 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 
 -실기부분: 
 mediapipe를 사용하여 손의 랜드마크 간 각도를 계산하고, tensorflowlite 모델을 사용하여 웹캠에서 손을 인식하고 결과를 반환하는 Python 코드다. 또한, 이 코드는 socket을 열어 서버로 작동하며, JavaScript를 사용하는 클라이언트와 상호작용한다.
+
+## 팀 정보
+|  팀원  |     역할     |     GitHub     |         Email         |
+| :----: | :----------: | :------------: | :-------------------: |
+| 김기원 |  Full-Stack  |   wkdrldnjs   |  jjy1215a64@gmail.com |
+| 전하영 |  Full-Stack  |   Hayeong-Jeon  |  wjsgkdd@gmail.com  |
