@@ -12,9 +12,11 @@
    - [2. 테스트 페이지](#2-테스트-페이지)
      - [쉬움 난이도](#쉬움-난이도)
      - [보통 난이도](#보통-난이도)
-2. [기술 스택](#기술-스택)
-3. [요약](#요약)
-4. [팀 정보](#팀-정보)
+2. [버전정보](#버전-정보)
+3. [사용방법](#사용-방법)
+4. [기술 스택](#기술-스택)
+5. [요약](#요약)
+6. [팀 정보](#팀-정보)
 <br/><br/>
 
 ## 페이지 설명 (detail of page)
@@ -49,6 +51,36 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 <br/><br/>
 
 <br/><br/>
+<hr>
+
+## 버전 정보
+- **Python**: `3.10`
+
+<hr>
+
+## 프로젝트 사용방법
+
+##### First. Install MySQL Server
+##### Second. Create Table
+##### ex.)
+```console
+CREATE TABLE quiz_test (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    question VARCHAR(255) NOT NULL,
+    selected_answer VARCHAR(20) NOT NULL
+);
+```
+<br/><br/>
+```console
+INSERT INTO quiz_test (question, selected_answer) VALUES
+('ㄱ을 손으로 어떻게 표현하나요?', 'ㄱ'),
+('ㄴ을 손으로 어떻게 표현하나요?', 'ㄴ'),
+('ㄷ을 손으로 어떻게 표현하나요?', 'ㄷ');
+```
+
+##### Third. Install Appach httpd or Open localhost a others way(port:5000)
+##### Open Index.html
+
 <hr>
 
 ## 기술 스택
