@@ -5,7 +5,6 @@
 </div>
 
 <br/><br/>
-<hr>
 
 # 목차
 1. [페이지 설명 (detail of page)](#페이지-설명-detail-of-page)
