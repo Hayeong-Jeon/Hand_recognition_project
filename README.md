@@ -86,8 +86,6 @@ INSERT INTO quiz_test (question, selected_answer) VALUES
 
 <br/><br/>
 
-<br/><br/>
-
 
 
 ## 프로젝트 요약
