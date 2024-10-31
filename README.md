@@ -92,7 +92,6 @@ INSERT INTO quiz_test (question, selected_answer) VALUES
 
 <br/><br/>
 
-<hr>
 
 
 ## 요약
