@@ -47,16 +47,12 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
     <img src="image/assets/보통2.gif" height="400" width="40%">
 </div>
 
-
-<br/><br/>
-
 <br/><br/>
 <hr>
 
 ## 버전 정보
 - **Python**: `3.10`
 
-<hr>
 
 ## 프로젝트 사용방법
 
