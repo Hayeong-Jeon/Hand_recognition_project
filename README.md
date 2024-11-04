@@ -12,7 +12,7 @@
    - [2. 테스트 페이지](#2-테스트-페이지)
      - [쉬움 난이도](#쉬움-난이도)
      - [보통 난이도](#보통-난이도)
-2. [버전정보](#버전-정보)
+2. [정보](#정보)
 3. [사용방법](#사용-방법)
 4. [기술 스택](#기술-스택)
 5. [프로젝트 요약](#프로젝트-요약)
@@ -49,14 +49,19 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 
 <hr>
 
-## 버전 정보
+## 정보
 - **Python**: `3.10`
+- **Flask**
+- **JavaScript**
+- **TensorFlow**
+- **MediaPipe**
+- **MySQL**
 <br/><br/>
 
-## 프로젝트 사용방법
+## 프로젝트 사용방법 (local)
 
-##### First. Install MySQL Server
-##### Second. Create Table
+##### 1st. Install MySQL Server
+##### 2nd. Create Table
 ##### ex.)
 ```console
 CREATE TABLE quiz_test (
@@ -73,7 +78,8 @@ INSERT INTO quiz_test (question, selected_answer) VALUES
 ('ㄷ을 손으로 어떻게 표현하나요?', 'ㄷ');
 ```
 
-##### Third. Install Appach httpd or Open localhost a others way(port:5000)
+##### 3rd. Install Appach httpd or Open localhost a others way(port:5000)
+##### 4th. Run the handstest.py
 ##### Open Index.html
 
 <hr>
