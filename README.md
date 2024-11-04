@@ -58,7 +58,7 @@ php, html/css를 사용하여 만든 페이지로써, 사용자가 이미지를 
 - **MySQL**
 <br/><br/>
 
-## 프로젝트 사용방법(Local)
+## 프로젝트 사용방법 (Local)
 
 ##### 1st. Install MySQL Server
 ##### 2nd. Create Table
