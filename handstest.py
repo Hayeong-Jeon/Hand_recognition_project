@@ -172,6 +172,20 @@ def compare_result_with_database(problem):
         timer_results.clear()  # Clear timer results
 
 @socketio.on('start_timer')
+def check_and_reset_problems():
+    # 현재 출제된 문제 수를 가져옵니다.
+    cursor.execute("SELECT COUNT(*) FROM quiz_test WHERE is_used = TRUE")
+    used_count = cursor.fetchone()[0]
+
+    # 전체 문제 수를 가져옵니다.
+    cursor.execute("SELECT COUNT(*) FROM quiz_test")
+    total_count = cursor.fetchone()[0]
+    
+
+    # 모든 문제가 출제되었다면 초기화
+    if used_count >= total_count:
+        reset_problem_usage()
+
 def start_timer():
     global timer_started, timer_end_time, random_problem, results, problemCount
 
@@ -180,9 +194,16 @@ def start_timer():
         
         results.clear()  # Clear results for the new timer session
 
-        # Generate a random problem and send it to the client
+        # 모든 문제가 출제되었는지 확인하고 초기화
+        check_and_reset_problems()
+
+    # Generate a random problem and send it to the client
     random_problem = generate_random_problem()
     socketio.emit('new_problem', random_problem)
+
+def reset_problem_usage():
+    cursor.execute("UPDATE quiz_test SET is_used = FALSE")
+    cnx.commit()  # 변경사항을 커밋하여 데이터베이스에 저장
 
 def generate_random_problem():
     global cursor, problemCount
