@@ -188,7 +188,7 @@ def generate_random_problem():
     global cursor, problemCount
 
     # 데이터베이스에서 출제되지 않은 문제 가져오기
-    cursor.execute("SELECT question FROM quiz_test WHERE question NOT IN (SELECT DISTINCT selected_answer FROM quiz_test) ORDER BY RAND() LIMIT 1")
+    cursor.execute("SELECT question FROM quiz_test WHERE is_used = FALSE ORDER BY RAND() LIMIT 1")
     db_result = cursor.fetchone()
 
     print(db_result)
