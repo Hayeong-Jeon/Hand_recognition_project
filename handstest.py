@@ -160,7 +160,7 @@ def compare_result_with_database(problem):
             else:
                 result = '오답입니다!'
 
-            UPDATE quiz_test SET is_used = TRUE WHERE id = %s;
+            cursor.execute("UPDATE quiz_test SET is_used = TRUE WHERE question = %s", (problem,))
             cnx.commit()  # 변경사항을 커밋하여 데이터베이스에 저장
 
         else:
