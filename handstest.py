@@ -154,10 +154,15 @@ def compare_result_with_database(problem):
         # 결과와 데이터베이스의 정답 비교
         if len(timer_results) > 0:
             most_common_result = Counter(timer_results).most_common(1)[0][0]
+            
             if most_common_result == db_answer:
                 result = '정답입니다!'
             else:
                 result = '오답입니다!'
+
+            cursor.execute("UPDATE quiz_test SET selected_answer = %s WHERE question = %s", (most_common_result, problem))
+            cnx.commit()  # 변경사항을 커밋하여 데이터베이스에 저장
+
         else:
             result = '손 인식 결과가 없습니다.'
 
